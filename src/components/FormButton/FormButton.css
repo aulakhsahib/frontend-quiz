@@ -1,0 +1,12 @@
+.quiz-button {
+    display: block;
+    border: 2px solid hsl(277, 91%, 56%);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    background-color: hsl(277, 91%, 56%);
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}

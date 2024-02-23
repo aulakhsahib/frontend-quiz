@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    font-family: sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* ul[class],
+ol[class] {
+    list-style: none;
+} */
+
+input[type="radio"] {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    position: fixed;
+}
+
+/* .button-container {
+    display: grid;
+    max-width: 600px;
+    margin: auto;
+    row-gap: 0.5rem;
+} */
+
+.default-button {
+    display: grid;
+    border-radius: 1rem;
+    border: 1px solid hsla(0, 0%, 0%, 0.25);
+    padding: 0.25rem;
+}
+
+.inner-tag-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-weight: 700;
+    column-gap: 1rem;
+}
+
+.option-tally {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: hsl(220, 38%, 97%);
+    color: hsl(219, 13%, 44%);
+    width: 56px;
+    aspect-ratio: 1;
+}
+
+/* 
+.option-tally>img {
+    width: 40px;
+} */
+
+.option-content {
+    color: hsl(215, 27%, 32%);
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Selected Button Start */
+.default-button.selected-button {
+    border-color: hsl(277, 91%, 56%);
+}
+
+.default-button.selected-button .option-tally {
+    background-color: hsl(277, 91%, 56%);
+    border-color: hsl(277, 91%, 56%);
+    color: white;
+}
+
+/* Selected Button End */
+
+/* Correct Selected Button Start */
+
+.default-button.correct-selected-button {
+    border-color: hsl(151, 70%, 50%);
+}
+
+.default-button.correct-selected-button .option-tally {
+    background-color: hsl(151, 70%, 50%);
+    border-color: hsl(151, 70%, 50%);
+    color: white;
+}
+
+.default-button.correct-selected-button .option-content::after {
+    content: url('./icon-correct.svg');
+}
+
+/* Correct Selected Button End */
+
+/* Incorrect User Selected Button Start */
+.default-button.incorrect-selected-button {
+    border-color: hsl(0, 82%, 63%);
+}
+
+.default-button.incorrect-selected-button .option-tally {
+    background-color: hsl(0, 82%, 63%);
+    border-color: hsl(0, 82%, 63%);
+    color: white;
+}
+
+.default-button.incorrect-selected-button .option-content::after {
+    content: url('./icon-error.svg');
+}
+
+/* Incorrect User Selected Button End */
+
+/* Correct User Did Not Selected Start */
+.default-button.correct-didnot-selected-button .option-content::after {
+    content: url('./icon-correct.svg');
+}
+
+/* Correct User Did Not Selected End */
