@@ -1,23 +1,44 @@
-import { useState } from 'react';
-import './App.css'
-import QuestionCard from './components/QuestionCard/QuestionCard';
-import Scorecard from './components/Scorecard/Scorecard';
+import { useState, useRef } from 'react';
+import './App.css';
+import Quiz from './components/Quiz/Quiz';
+import ScorePage from './components/ScorePage/ScorePage';
 import LandingPage from './components/LandingPage/LandingPage';
+import data from './data';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
-  const [quizUserSelected, setQuizUserSelected] = useState('');
-  const [scores, setScores] = useState(0);
-  const [landingPageVisibility, setLandingPageVisibility] = useState(true);
-  const [showScorecard, setShowScorecard] = useState(false);
+  const [quizUserSelected, setQuizUserSelected] = useState(''); //default ''
+  const scores = useRef(0);
+  const [landingPageVisibility, setLandingPageVisibility] = useState(true); //default true
+  const [showScorecard, setShowScorecard] = useState(false); //default false
 
+  let quizToShow;
+  if (quizUserSelected) {
+    quizToShow = data.quizzes.find(quiz => quiz.title === quizUserSelected);
+  }
 
 
   if (landingPageVisibility) {
-    return <LandingPage {...{ quizUserSelected, setQuizUserSelected, setLandingPageVisibility }} />
+    return (
+      <div className="parent-wrapper-container">
+        <Navbar quizToShow={quizToShow} />
+        <LandingPage {...{ quizUserSelected, setQuizUserSelected, setLandingPageVisibility }} />
+      </div>
+    );
   } else if (showScorecard) {
-    return <Scorecard score={scores} />
+    return (
+      <div className="parent-wrapper-container">
+        <Navbar quizToShow={quizToShow} />
+        <ScorePage scores={scores} quizToShow={quizToShow} setQuizUserSelected={setQuizUserSelected} setLandingPageVisibility={setLandingPageVisibility} setShowScorecard={setShowScorecard} />
+      </div>
+    );
   } else {
-    return <QuestionCard setScorecardVisibilty={setShowScorecard} setScores={setScores} />
+    return (
+      <div className="parent-wrapper-container">
+        <Navbar quizToShow={quizToShow} />
+        <Quiz quizToShow={quizToShow} setScorecardVisibilty={setShowScorecard} scores={scores} />
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,37 @@
+.scorecard-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    color: var(--score-card-text-clr);
+    background-color: var(--score-card-bg-clr);
+}
+
+.scorecard-icon-container {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    justify-content: center;
+}
+
+.scorecard-icon-container img {
+    background-color: var(--option-tally-default-button-bg-clr);
+    border-radius: 0.5rem;
+}
+
+.scores-digit {
+    font-size: 9rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.total-questions {
+    text-align: center;
+    color: var(--);
+}
+
+@media only screen and (max-width: 800px) {
+    .scores-digit {
+        font-size: 6rem;
+    }
+}

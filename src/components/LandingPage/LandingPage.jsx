@@ -1,39 +1,49 @@
 /* eslint-disable react/prop-types */
 import './LandingPage.css';
-import RadioButton from '../OptionButton/RadioButton';
+import RadioButton from '../RadioButton/RadioButton.jsx';
 import quizData from '../../data.jsx';
 import FormButton from '../FormButton/FormButton.jsx';
+import { useState } from 'react';
 
-export default function LandingPage({ quizUserSelected, setQuizUserSelected, setLandingPageVisibility }) {
+export default function LandingPage({ setQuizUserSelected, setLandingPageVisibility }) {
+    const [checkedValue, setCheckedValue] = useState('');
+
 
     const submitHandler = e => {
         e.preventDefault();
-        if (!quizUserSelected) return;
-        // const formData = new FormData(e.target);
+        if (!checkedValue) return;
+        setQuizUserSelected(checkedValue);
         setLandingPageVisibility(false);
     }
 
 
     return (
         <>
-            <h1>Welcome To Web Dev Quiz</h1>
-            <p>Select the topic you want for the quiz</p>
-            <form onSubmit={submitHandler}>
-                {
-                    quizData.quizzes.map(({ title }, index) => {
-                        let styleAtrributes = { defaultBtn: true };
-                        if (title === quizUserSelected) styleAtrributes = { selected: true };
-                        return (
-                            <RadioButton key={index} name="Choose the quiz topic" value={title} checkedValue={quizUserSelected} setCheckedValue={setQuizUserSelected} {...styleAtrributes}>
-                                <span>{index + 1}</span>
-                                <p>{title}</p>
-                            </RadioButton>
-                        );
-                    })
-                }
-                {quizUserSelected && <FormButton type="submit">Start Quiz</FormButton>}
-            </form>
-            {quizUserSelected}
+            <div className="landing-page-parent-container">
+                <div className="welcome-container">
+                    <h1 className="welcome-heading">Welcome to the <span className="heading-bold-section">Frontend Quiz!</span></h1>
+                    <p>Select the topic you want for the quiz</p>
+                </div>
+                <div className="quiz-selection-container">
+                    <form onSubmit={submitHandler}>
+                        {
+                            quizData.quizzes.map(({ title, icon }, index) => {
+                                let styleAtrributes = { defaultBtn: true };
+                                if (title === checkedValue) styleAtrributes = { selected: true };
+                                return (
+                                    <RadioButton key={index} name="Choose the quiz topic" value={title} checkedValue={checkedValue} setCheckedValue={setCheckedValue} {...styleAtrributes}>
+                                        {/* <span>{index + 1}</span> */}
+                                        <img src={icon} />
+                                        <p>{title}</p>
+                                    </RadioButton>
+                                );
+                            })
+                        }
+                        {checkedValue && <FormButton type="submit">Start Quiz</FormButton>}
+                    </form>
+                </div>
+            </div>
+            {checkedValue}
         </>
     );
 }

@@ -1,0 +1,34 @@
+.landing-page-parent-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.welcome-container {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    row-gap: 2rem;
+}
+
+.welcome-heading {
+    font-weight: 400;
+}
+
+.heading-bold-section{
+    display: block;
+    font-weight: 700;
+}
+
+.quiz-selection-container {}
+
+@media only screen and (max-width: 800px) {
+    .landing-page-parent-container {
+        display: grid;
+        grid-template-columns: unset;
+        row-gap: 2rem;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .welcome-heading {
+        font-size: 1.5rem;
+    }
+}

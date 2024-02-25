@@ -1,0 +1,94 @@
+.quiz-question-options-parent-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+}
+
+.form-container {
+    display: grid;
+    row-gap: 2rem;
+}
+.question-indicator {
+    font-style: italic;
+}
+
+.question {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+.question-progress-bar-container {
+    display: grid;
+    row-gap: 1rem;
+    grid-template-rows: min-content min-content 1fr;
+}
+
+.quiz-container-progress-bar {
+    align-self: self-end;
+}
+
+.submit-button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+}
+
+div.submit-button-container::before {
+    content: 'lorem ipsum';
+    display: block;
+    visibility: hidden;
+}
+
+.submit-answer-button {
+    max-width: 750px;
+    margin: auto;
+}
+
+.warning-container {
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    color: red;
+    text-align: center;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+}
+
+.warning-container::before {
+    color: red;
+    text-align: center;
+    font-weight: 500;
+    content: 'lorem ipsum';
+    display: block;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 800px) {
+    .quiz-question-options-parent-container {
+        grid-template-columns: unset;
+    }
+
+    div.submit-button-container,.warning-container {
+        display: unset;
+        text-align: center;
+    }
+    div.submit-button-container::before,.warning-container::before {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .question {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .question {
+        font-size: 1rem;
+    }
+}

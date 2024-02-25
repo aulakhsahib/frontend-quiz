@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 *,
 *::before,
 *::after {
     box-sizing: inherit;
-    font-family: sans-serif;
+    font-family: "Rubik", sans-serif;
 }
 
 html {
@@ -24,7 +26,82 @@ li {
     padding: 0;
 }
 
-/* ul[class],
-ol[class] {
-    list-style: none;
-} */
+:root {
+    --electric-purple: hsl(277, 91%, 56%);
+    --light-electric-purple: hsl(277, 91%, 85%);
+    --pickled-bluewood: hsl(216, 25%, 25%);
+    --river-bed: hsl(215, 27%, 32%);
+    --jet-grey: hsl(219, 13%, 44%);
+    --cloudy-blue: hsl(216, 47%, 78%);
+    --white-smoke: hsl(220, 37%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --tealish-green: hsl(151, 70%, 50%);
+    --valentine-red: hsl(0, 82%, 63%);
+
+    --body-bg-clr: var(--white-smoke);
+    --body-text-clr: var(--pickled-bluewood);
+
+    /* Navbar */
+    --navbar-background: var(--electric-purple);
+
+    /* Default Button  */
+    --default-button-bg-color: var(--white);
+
+    /* Default Button Option Tally */
+    --option-tally-default-button-bg-clr: var(--white-smoke);
+    --option-tally-default-button-text-clr: var(--jet-grey);
+
+    /* Default Button Option Content */
+    --option-content-default-button-text-clr: var(--river-bed);
+
+    /* Default Button Hover */
+    --default-button-hover-text-clr: var(--electric-purple);
+    --default-button-hover-bg-clr: var(--light-electric-purple);
+
+    /* Selected Button */
+    --selected-button-clr: var(--electric-purple);
+    --selected-button-img-bg-clr: var(--white-smoke);
+
+    /* Correct Selected Button */
+    --correct-selected-button-clr: var(--tealish-green);
+
+    /* Incorrect User Selected Button */
+    --incorrect-user-selected-button-clr: var(--valentine-red);
+
+    --score-card-text-clr: var(--pickled-bluewood);
+    --score-card-bg-clr: var(--white);
+}
+
+:root:has(input[type="checkbox"]:checked.color-theme-toggle) {
+    --body-bg-clr: var(--pickled-bluewood);
+    --body-text-clr: var(--white-smoke);
+    
+    /* Default Button  */
+    --default-button-bg-color: var(--river-bed);
+    
+    /* Default Button Option Content */
+    --option-content-default-button-text-clr: var(--white-smoke);
+    
+    --score-card-text-clr: var(--white-smoke);
+    --score-card-bg-clr: var(--river-bed);
+    /*     
+    Default Button Option Tally
+    --option-tally-default-button-bg-clr: var(--white-smoke);
+    --option-tally-default-button-text-clr: var(--jet-grey); 
+    
+    Selected Button
+    --selected-button-clr: var(--electric-purple);
+    --selected-button-img-bg-clr: var(--white-smoke);
+
+    Correct Selected Button
+    --correct-selected-button-clr: var(--tealish-green);
+
+    Incorrect User Selected Button
+    --incorrect-user-selected-button-clr: var(--valentine-red);
+    */
+}
+
+body {
+    background-color: var(--body-bg-clr);
+    color: var(--body-text-clr);
+}
