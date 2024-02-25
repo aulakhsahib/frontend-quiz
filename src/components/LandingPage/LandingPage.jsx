@@ -43,7 +43,6 @@ export default function LandingPage({ setQuizUserSelected, setLandingPageVisibil
                     </form>
                 </div>
             </div>
-            {checkedValue}
         </>
     );
 }

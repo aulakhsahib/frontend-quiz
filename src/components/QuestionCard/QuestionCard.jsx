@@ -101,7 +101,6 @@ export default function QuestionCard({ question, options, answer, scores, setSco
                 {/* </div> */}
 
             </form>
-            {checkedValue}
         </>
     );
 }
