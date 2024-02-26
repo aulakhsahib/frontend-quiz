@@ -29,8 +29,8 @@ export default function RadioButton({ name, value, checkedValue, setCheckedValue
 
 RadioButton.propTypes = {
     propsValidator(props) {
-        const { defaultBtn, selected, correctSelected, incorrectSelected, correctDidNotSelected } = props;
-        if (Number(!!defaultBtn) + Number(!!selected) + Number(!!correctSelected) + Number(!!incorrectSelected) + Number(!!correctDidNotSelected) > 1) {
+        const { defaultBtn, selected, correctSelected, incorrectSelected, correctDidNotSelected, disableBtn } = props;
+        if (Number(!!defaultBtn) + Number(!!selected) + Number(!!correctSelected) + Number(!!incorrectSelected) + Number(!!correctDidNotSelected) + Number(!!disableBtn)> 1) {
             throw new Error('You can only use either of one prop from the following: defaultBtn, selected, correctSelected, incorrectSelected, correctDidNotSelected');
         }
     }
