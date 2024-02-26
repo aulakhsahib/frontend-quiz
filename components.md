@@ -6,10 +6,7 @@
 
 #### Props
 
-| S.No | Prop Name                | Parent Component | From |
-| :--- | :----------------------- | :--------------- | :--- |
-| 1    | setQuizUserSelected      | App              | App  |
-| 2    | setLandingPageVisibility | App              | App  |
+None
 
 #### State
 
@@ -17,21 +14,32 @@
 | :--- | :----------- | :-------------- |
 | 1    | checkedValue | setCheckedValue |
 
-***
+#### Context Variables
+
+| S.No | Variable Name            |
+| :--- | :----------------------- |
+| 1    | setQuizUserSelected      |
+| 2    | setLandingPageVisibility |
+
+---
 
 ### Navbar
 
 #### Props
 
-| S.No | Prop Name  | Parent Component | From |
-| :--- | :--------- | :--------------- | :--- |
-| 1    | quizToShow | App              | App  |
+None
 
 #### State
 
 None
 
-***
+#### Context Variables
+
+| S.No | Variable Name |
+| :--- | :------------ |
+| 1    | quizData      |
+
+---
 
 ### App
 
@@ -41,63 +49,59 @@ None
 
 #### State
 
-| S.No | State Name            | Setter                   |
-| :--- | :-------------------- | :----------------------- |
-| 1    | quizUserSelected      | setQuizUserSelected      |
-| 2    | landingPageVisibility | setLandingPageVisibility |
-| 3    | showScorecard         | setShowScorecard         |
+None
 
-#### Ref
+#### Context Variables
 
-| S.No | ref Name |
-| :--- | :------- |
-| 1    | scores   |
+| S.No | Variable Name         |
+| :--- | :-------------------- |
+| 1    | landingPageVisibility |
+| 2    | scorePageVisibility   |
 
-#### Variables
-
-| S.No | Variable Name |
-| :--- | :------------ |
-| 1    | quizToShow    |
-
-***
+---
 
 ### Quiz
 
 #### Props
 
-| S.No | Prop Name                                | Parent Component | From |
-| :--- | :--------------------------------------- | :--------------- | :--- |
-| 1    | quizToShow                               | App              | App  |
-| 2    | setScorecardVisibility(setShowScorecard) | App              | App  |
+None
 
 #### State
 
-| S.No | State Name     | Setter            |
-| :--- | :------------- | :---------------- |
-| 1    | questionToShow | setQuestionToShow |
+| S.No | State Name           | Setter                  |
+| :--- | :------------------- | :---------------------- |
+| 1    | currentQuestionIndex | setCurrentQuestionIndex |
 
 #### Variables
+
+| S.No | Variable Name                          |
+| :--- | :------------------------------------- |
+| 1    | quizQuestions (from quizData)          |
+| 2    | noOfQuizQuestions (from quizQuestions) |
+| 3    | question (from quizQuestions)          |
+| 4    | options (from quizQuestions)           |
+| 5    | answer (from quizQuestions)            |
+
+#### Context Variables
 
 | S.No | Variable Name |
 | :--- | :------------ |
 | 1    | quizData      |
 
-***
+---
 
 ### QuestionCard
 
 #### Props
 
-| S.No | Prop Name                             | Parent Component | From |
-| :--- | :------------------------------------ | :--------------- | :--- |
-| 1    | question (from quizData)              | Quiz             | Quiz |
-| 2    | options (from quizData)               | Quiz             | Quiz |
-| 3    | answer (from quizData)                | Quiz             | Quiz |
-| 4    | scores                                | App              | Quiz |
-| 5    | setScorecardVisibility                | App              | Quiz |
-| 6    | noOfQuizQuestions (from quizData)     | Quiz             | Quiz |
-| 7    | currentQuestionIndex (questionToShow) | Quiz             | Quiz |
-| 8    | setQuestionToShow                     | Quiz             | Quiz |
+| S.No | Prop Name            | Parent Component | From |
+| :--- | :------------------- | :--------------- | :--- |
+| 1    | question             | Quiz             | Quiz |
+| 2    | options              | Quiz             | Quiz |
+| 3    | answer               | Quiz             | Quiz |
+| 4    | setQuestionToShow    | Quiz             | Quiz |
+| 5    | noOfQuizQuestions    | Quiz             | Quiz |
+| 6    | currentQuestionIndex | Quiz             | Quiz |
 
 #### State
 
@@ -107,17 +111,24 @@ None
 | 2    | showCorrectAnswer | setShowCorrectAnswer |
 | 3    | showWarning       | setShowWarning       |
 
-***
+#### Context Variable
+
+| S.No | Variable Name          |
+| :--- | :--------------------- |
+| 1    | setScorePageVisibility |
+| 2    | userScores             |
+
+---
 
 ### ProgressBar
 
 #### Props
 
-| S.No | Prop Name                             | Parent Component | From         |
-| :--- | :------------------------------------ | :--------------- | :----------- |
-| 1    | currentQuestionIndex (questionToShow) | Quiz             | QuestionCard |
-| 2    | totalQuestion (noOfQuizQuestions)     | Quiz             | QuestionCard |
-| 3    | className                             | QuestionCard     | QuestionCard |
+| S.No | Prop Name            | Parent Component | From         |
+| :--- | :------------------- | :--------------- | :----------- |
+| 1    | currentQuestionIndex | Quiz             | QuestionCard |
+| 2    | noOfQuizQuestions    | Quiz             | QuestionCard |
+| 3    | className            | QuestionCard     | QuestionCard |
 
 #### State
 
@@ -129,51 +140,55 @@ None
 | :--- | :------------ |
 | 1    | width         |
 
-***
+---
 
 ### ScorePage
 
 #### Props
 
-| S.No | Prop Name                | Parent Component | From |
-| :--- | :----------------------- | :--------------- | :--- |
-| 1    | quizToShow               | App              | App  |
-| 2    | scores                   | App              | App  |
-| 3    | setQuizUserSelected      | App              | App  |
-| 4    | setShowScorecard         | App              | App  |
-| 5    | setLandingPageVisibility | App              | App  |
+None
 
 #### State
 
 None
 
-***
+#### Context Variables
+
+| S.No | Variable Name            |
+| :--- | :----------------------- |
+| 1    | userScores               |
+| 2    | setQuizUserSelected      |
+| 3    | setScorePageVisibility   |
+| 4    | setLandingPageVisibility |
+
+---
 
 ### Scorecard
 
 #### Props
 
-| S.No | Prop Name                     | Parent Component | From      |
-| :--- | :---------------------------- | :--------------- | :-------- |
-| 1    | scores                        | App              | ScorePage |
-| 2    | quizUserSelected (quizToShow) | App              | ScorePage |
-
-quizUserSelected in Scorecard component is different than that defined in App.
-It is a case of duplicate naming.
+None
 
 #### State
 
 None
 
+#### Context Variables
+
+| S.No | Variable Name |
+| :--- | :------------ |
+| 1    | quizData      |
+| 2    | userScores    |
+
 #### Variables
 
-| S.No | Variable Name                                            |
-| :--- | :------------------------------------------------------- |
-| 1    | icon (from quizUserSelect which is quizToShow)           |
-| 2    | title (from quizUserSelect which is quizToShow)          |
-| 3    | totalQuestions (from quizUserSelect which is quizToShow) |
+| S.No | Variable Name                  |
+| :--- | :----------------------------- |
+| 1    | quizIcon (from quizData)       |
+| 2    | quizTitle (from quizData)      |
+| 3    | totalQuestions (from quizData) |
 
-***
+---
 
 ### FormButton
 
@@ -189,7 +204,7 @@ None
 
 None
 
-***
+---
 
 ### RadioButton
 
@@ -219,7 +234,7 @@ incorrectSelected, correctDidNotSelected, disableBtn can be selected at a time.
 
 None
 
-***
+---
 
 ## Component Hierarchy
 
