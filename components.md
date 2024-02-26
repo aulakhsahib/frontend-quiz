@@ -240,6 +240,7 @@ None
 
 ```mermaid
 flowchart TB
+    QuizProvider --> App
     App --> Navbar
     App --> LandingPage
     LandingPage -->LandingPageRadioButton

@@ -11,8 +11,6 @@ export default function Quiz() {
   const { questions: quizQuestions } = quizData;
   const noOfQuizQuestions = quizQuestions.length;
   const { question, options, answer } = quizQuestions[currentQuestionIndex];
-  //   Pass down    key, question, options, answer, setQuestionToShow, currentQuestionIndex, noOfQuizQuestions
-  //   Not passing scores, setScorecardVisibility down
 
   return (
     <>

@@ -54,13 +54,4 @@ export default function LandingPage() {
   );
 }
 
-/* 
-For form options you will use map function in real project.
-
-For RadioButton, I want
-1. name
-2. value
-3. setCurrentSelectedValue This will be used in onChange(This uses setter from parent. For eg, e => setterFromParent(e.target.value))
-4. currentSelectedValue (used in checked attribute)
-5. label / children
-*/
+// For form options you will use map function in real project
