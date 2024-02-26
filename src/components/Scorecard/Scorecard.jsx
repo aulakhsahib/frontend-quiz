@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
-import './Scorecard.css';
-export default function Scorecard({ scores, quizUserSelected }) {
-    const { icon, title } = quizUserSelected;
-    const totalQuestions = quizUserSelected.questions.length;
+import useQuiz from "../../hooks/useQuiz";
+import "./Scorecard.css";
+export default function Scorecard() {
+  const { quizData, userScores } = useQuiz();
 
-    return (
+  const { icon: quizIcon, title: quizTitle } = quizData;
+  const totalQuestions = quizData.questions.length;
 
-        <div className="scorecard-container">
-            <div className="scorecard-icon-container">
-                <img src={icon} />
-                <p>{title}</p>
-            </div>
-            <p className="scores-digit">{scores.current}</p>
-            <p className="total-questions">out of {totalQuestions}</p>
-        </div>
-    
-    );
+  return (
+    <div className="scorecard-container">
+      <div className="scorecard-icon-container">
+        <img src={quizIcon} />
+        <p>{quizTitle}</p>
+      </div>
+      <p className="scores-digit">{userScores.current}</p>
+      <p className="total-questions">out of {totalQuestions}</p>
+    </div>
+  );
 }

@@ -1,18 +1,30 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import './Quiz.css';
-import QuestionCard from '../QuestionCard/QuestionCard.jsx';
+import { useState } from "react";
+import "./Quiz.css";
+import QuestionCard from "../QuestionCard/QuestionCard.jsx";
+import useQuiz from "../../hooks/useQuiz.jsx";
 
+export default function Quiz() {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-export default function Quiz({ quizToShow, setScorecardVisibilty, scores }) {
-    // const [loading, setLoading] = useState(true);
-    const quizData = quizToShow.questions;
-    const [questionToShow, setQuestionToShow] = useState(0);
+  const { quizData } = useQuiz();
+  const { questions: quizQuestions } = quizData;
+  const noOfQuizQuestions = quizQuestions.length;
+  const { question, options, answer } = quizQuestions[currentQuestionIndex];
+  //   Pass down    key, question, options, answer, setQuestionToShow, currentQuestionIndex, noOfQuizQuestions
+  //   Not passing scores, setScorecardVisibility down
 
-    return (
-        <>
-            <QuestionCard key={quizData[questionToShow].question} {...quizData[questionToShow]} setQuestionToShow={setQuestionToShow} noOfQuizQuestions={quizData.length} currentQuestionIndex={questionToShow} scores={scores} setScorecardVisibilty={setScorecardVisibilty} />
-        </>
-    );
-
+  return (
+    <>
+      <QuestionCard
+        key={quizQuestions[currentQuestionIndex].question}
+        question={question}
+        options={options}
+        answer={answer}
+        setQuestionToShow={setCurrentQuestionIndex}
+        noOfQuizQuestions={noOfQuizQuestions}
+        currentQuestionIndex={currentQuestionIndex}
+      />
+    </>
+  );
 }

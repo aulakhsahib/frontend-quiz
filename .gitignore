@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .markdownlint.jsonc
+refactor.md
 
 # Editor directories and files
 .vscode/*

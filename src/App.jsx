@@ -1,45 +1,35 @@
-import { useState, useRef } from 'react';
-import './App.css';
-import Quiz from './components/Quiz/Quiz';
-import ScorePage from './components/ScorePage/ScorePage';
-import LandingPage from './components/LandingPage/LandingPage';
-import data from './data';
-import Navbar from './components/Navbar/Navbar';
+import "./App.css";
+import Quiz from "./components/Quiz/Quiz";
+import ScorePage from "./components/ScorePage/ScorePage";
+import LandingPage from "./components/LandingPage/LandingPage";
+import Navbar from "./components/Navbar/Navbar";
+import useQuiz from "./hooks/useQuiz";
 
 function App() {
-  const [quizUserSelected, setQuizUserSelected] = useState(''); //default ''
-  const scores = useRef(0);
-  const [landingPageVisibility, setLandingPageVisibility] = useState(true); //default true
-  const [showScorecard, setShowScorecard] = useState(false); //default false
-
-  let quizToShow;
-  if (quizUserSelected) {
-    quizToShow = data.quizzes.find(quiz => quiz.title === quizUserSelected);
-  }
-
+  const { landingPageVisibility, scorePageVisibility } = useQuiz();
 
   if (landingPageVisibility) {
     return (
       <div className="parent-wrapper-container">
-        <Navbar quizToShow={quizToShow} />
-        <LandingPage {...{ quizUserSelected, setQuizUserSelected, setLandingPageVisibility }} />
+        <Navbar />
+        <LandingPage />
       </div>
     );
-  } else if (showScorecard) {
+  } else if (scorePageVisibility) {
     return (
       <div className="parent-wrapper-container">
-        <Navbar quizToShow={quizToShow} />
-        <ScorePage scores={scores} quizToShow={quizToShow} setQuizUserSelected={setQuizUserSelected} setLandingPageVisibility={setLandingPageVisibility} setShowScorecard={setShowScorecard} />
+        <Navbar />
+        <ScorePage />
       </div>
     );
   } else {
     return (
       <div className="parent-wrapper-container">
-        <Navbar quizToShow={quizToShow} />
-        <Quiz quizToShow={quizToShow} setScorecardVisibilty={setShowScorecard} scores={scores} />
+        <Navbar />
+        <Quiz />
       </div>
     );
   }
 }
 
-export default App
+export default App;
