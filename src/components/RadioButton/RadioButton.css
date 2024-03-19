@@ -86,7 +86,7 @@ input[type="radio"] {
 }
 
 .default-button.correct-selected-button .option-content::after {
-    content: url('./images/icon-correct.svg');
+    content: url('/images/icon-correct.svg');
 }
 
 /* Correct Selected Button End */
@@ -103,14 +103,14 @@ input[type="radio"] {
 }
 
 .default-button.incorrect-selected-button .option-content::after {
-    content: url('./images/icon-error.svg');
+    content: url('/images/icon-error.svg');
 }
 
 /* Incorrect User Selected Button End */
 
 /* Correct User Did Not Selected Start */
 .default-button.correct-didnot-selected-button .option-content::after {
-    content: url('./images/icon-correct.svg');
+    content: url('/images/icon-correct.svg');
 }
 
 /* Correct User Did Not Selected End */
